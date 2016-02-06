@@ -1,0 +1,5 @@
+0|Compound_1|Compounds_3D_F|sdf|1|dock1|1	('87|665312_36|Aromatic_carboxylic_acids_F|sdf|22|dock2|1', 0.004045050581470116)	('1884|M3006_1781|Aromatic_primary_amines_F|sdf|361|dock3|1', 0.017087827563117462)
+4|Compound_1|Compounds_3D_F|sdf|1|dock5|1	('86|665312_36|Aromatic_carboxylic_acids_F|sdf|22|dock1|1', 0.00507974761394529)	('1884|M3006_1781|Aromatic_primary_amines_F|sdf|361|dock3|1', 0.007713316304920438)
+1|Compound_1|Compounds_3D_F|sdf|1|dock2|1	('86|665312_36|Aromatic_carboxylic_acids_F|sdf|22|dock1|1', 0.0013806349375176745)	('1884|M3006_1781|Aromatic_primary_amines_F|sdf|361|dock3|1', 0.02181800847163802)
+2|Compound_1|Compounds_3D_F|sdf|1|dock3|1	('86|665312_36|Aromatic_carboxylic_acids_F|sdf|22|dock1|1', 0.0190890799147911)	('1884|M3006_1781|Aromatic_primary_amines_F|sdf|361|dock3|1', 0.011620609260380329)
+3|Compound_1|Compounds_3D_F|sdf|1|dock4|1	('87|665312_36|Aromatic_carboxylic_acids_F|sdf|22|dock2|1', 0.02134855763028249)	('1884|M3006_1781|Aromatic_primary_amines_F|sdf|361|dock3|1', 0.04789635302688979)

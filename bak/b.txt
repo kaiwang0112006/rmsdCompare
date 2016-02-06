@@ -1,0 +1,1 @@
+D:\python_file\rmsdCompare\src>python mainparallel.py --react=4_acid_amine_torsionfilter.sdf --product=products.sdf
