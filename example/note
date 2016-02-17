@@ -1,5 +1,7 @@
 #shell command
 python main.py --react=4_acid_amine_torsionfilter.sdf --product=products.sdf
 
+python mainserial.py  --react=4_acid_amine_torsionfilter.sdf  --product=product_1.sdf  --out=output.e --nmx=3 --sdfout=out.sdf
+
 #result
 It will result in a output file:output.o. This can be changed by feeding a parameter to main.py. 
