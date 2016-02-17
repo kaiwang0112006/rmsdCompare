@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from rdkit import Chem
-from rdkit.Chem import AllChem, MACCSkeys
+from rdkit.Chem import AllChem, MACCSkeys,rdMolAlign
 from rdkit.SimDivFilters import rdSimDivPickers
 from rdkit.Chem.Fingerprints import FingerprintMols
 import numpy
@@ -65,7 +65,8 @@ class RMSDCompare(object):
                 try:
                     rmsd = AllChem.GetBestRMS(mp, mr)/(mp.GetNumAtoms()+mr.GetNumAtoms())
                 except:
-                    rmsd = 0
+                    rmsd = -1
+
                 if 'acid' in reactname:
                     self.rmatrix[pdtname]['acid'][reactname] = rmsd
                 elif 'amines' in reactname:
