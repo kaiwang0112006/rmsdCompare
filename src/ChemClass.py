@@ -12,6 +12,7 @@ import multiprocessing
 import random
 import string
 
+
 #read sdf file and do fingerprint calculation AND clustering
 class ChemParse(object):
     def __init__(self):
@@ -51,6 +52,8 @@ class RMSDCompare(object):
         self.products = products
         self.reacts = reacts
         self.rmatrix = {}
+        self.productsdf ={}
+        self.reactsdf = {}
     
     #the matrix will be like:{product:{'acid':{'react1':0.2,'react2':0.3...},'amines':{'react1':0.2,'react2':0.3...}}}
     #hard code, cannot be reused in other case
@@ -59,9 +62,11 @@ class RMSDCompare(object):
         pb = progressbar(total, "*")
         for indexpdt, mp in enumerate(self.products):
             pdtname = mp.GetProp('_Name')
+            self.productsdf[pdtname] = mp
             self.rmatrix[pdtname] = {'acid':{},'amines':{}}
             for indexreact, mr in enumerate(self.reacts):
                 reactname = mr.GetProp('_Name')
+                self.reactsdf[reactname] = mr
                 try:
                     rmsd = AllChem.GetBestRMS(mp, mr)/(mp.GetNumAtoms()+mr.GetNumAtoms())
                 except:
@@ -147,6 +152,29 @@ class RMSDCompare(object):
         if nmx > len(sortvalues):
             nmx = len(sortvalues)
         return [sortvalues[i] for i in range(nmx)]
+    
+    def writesdf(self,sdfout,nmx):
+        sdfw = Chem.SDWriter(sdfout)
+        for pdtname in self.rmatrix:
+            sdfw.write(self.productsdf[pdtname])
+            acidNvalues = self.getNcompound(self.rmatrix[pdtname]['acid'],nmx)
+            aminesNvalues = self.getNcompound(self.rmatrix[pdtname]['amines'],nmx)
+            
+            for v in acidNvalues:
+                m = self.reactsdf[v[0]]
+                rmsd = v[1]
+                m.SetProp('product',pdtname)
+                m.SetProp('rmsd',str(rmsd))
+                sdfw.write(m)
+            for v in aminesNvalues:
+                m = self.reactsdf[v[0]]
+                rmsd = v[1]
+                m.SetProp('product',pdtname)
+                m.SetProp('rmsd',str(rmsd))
+                sdfw.write(m)
+
+        
+        
         
 class Fingerprint_Cluster(object):
     def __init__( self, fps):
