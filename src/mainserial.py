@@ -11,7 +11,8 @@ def getOptions():
     requiredgroup.add_argument('--react', dest='reacts', help='sdf file for reacts', default='', required=True)
     requiredgroup.add_argument('--product', dest='products', help='sdf file for products', default='', required=True)
     parser.add_argument('--nmx',dest='nmx',help='numer of top max similar reacts to record for each type(acid and amines)', type=int, default=1)
-    parser.add_argument('--out',dest='out',help='output file', default='output.o')
+    parser.add_argument('--out',dest='out',help='output rmsd file', default='output.o')
+    parser.add_argument('--sdfout',dest='sdfout',help='output sdf file', default='')
 
 
     args = parser.parse_args()
@@ -45,6 +46,8 @@ def main():
     rmsdcomp.getRMSDmatrix()
     print "\nwrite to output..."
     rmsdcomp.writeMaxtrix(options.out,options.nmx)
+    if options.sdfout:
+        rmsdcomp.writesdf(options.sdfout,options.nmx)
     
     
         
