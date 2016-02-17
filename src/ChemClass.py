@@ -118,7 +118,7 @@ class RMSDCompare(object):
             try:
                 rmsd = AllChem.GetBestRMS(mp, mr)/(mp.GetNumAtoms()+mr.GetNumAtoms())
             except:
-                rmsd = 0
+                rmsd = -1
             #r.append([pdtname,reactname,rmsd])
             #print [pdtname,reactname,rmsd]
             result_queue.put([pdtname,reactname,rmsd])
