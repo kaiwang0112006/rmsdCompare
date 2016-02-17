@@ -31,17 +31,17 @@ def main():
     
     print "generate rmsd matrix..."
     psource = []
-######################################################
-    #small sample test
-    for i in range(100):
-        psource.append(productparse.source.next())
-    rsource = []
-    for i in range(100):
-        rsource.append(reactparse.source.next())
-    rmsdcomp = RMSDCompare(psource, rsource)
-######################################################
+# ######################################################
+#     #small sample test
+#     for i in range(100):
+#         psource.append(productparse.source.next())
+#     rsource = []
+#     for i in range(100):
+#         rsource.append(reactparse.source.next())
+#     rmsdcomp = RMSDCompare(psource, rsource)
+# ######################################################
        
-    #rmsdcomp = RMSDCompare(productparse.source, reactparse.source)
+    rmsdcomp = RMSDCompare(productparse.source, reactparse.source)
     rmsdcomp.getRMSDmatrix()
     print "\nwrite to output..."
     rmsdcomp.writeMaxtrix(options.out,options.nmx)
