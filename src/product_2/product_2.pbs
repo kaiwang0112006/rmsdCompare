@@ -1,9 +1,0 @@
-#PBS -N rmsdRun3
-#PBS -j oe
-#PBS -l nodes=1:ppn=1
-
-
-NP=`cat $PBS_NODEFILE | wc -l`
-NN=`cat $PBS_NODEFILE | sort -u | wc -l``
-
-python mainserial.py --react=/Users/wangkai/Documents/eclipse_workspace/pythondaily/rmsdcompare/src/4_acid_amine_torsionfilter.sdf --product=/Users/wangkai/Documents/eclipse_workspace/pythondaily/rmsdcompare/src/product_2/product_2.sdf --out=/Users/wangkai/Documents/eclipse_workspace/pythondaily/rmsdcompare/src/product_2/output.o
