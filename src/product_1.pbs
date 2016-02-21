@@ -1,0 +1,9 @@
+#PBS -N rmsdRun1
+#PBS -j oe
+#PBS -l nodes=1:ppn=1
+
+
+NP=`cat $PBS_NODEFILE | wc -l`
+NN=`cat $PBS_NODEFILE | sort -u | wc -l``
+
+python mainserial.py --react=/home/xh276/DockProb/rmsdCompare/src/4_acid_amine_torsionfilter.sdf --product=/home/xh276/DockProb/rmsdCompare/src/product_1/product_1.sdf --out=/home/xh276/DockProb/rmsdCompare/src/product_1/output.o
